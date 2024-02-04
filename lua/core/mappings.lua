@@ -8,6 +8,9 @@ M.general = {
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
+    -- save
+    ["<C-s>"] = { "<cmd> w <CR>", "Save file" }, -- custom save
+
     -- navigate within insert mode
     ["<C-h>"] = { "<Left>", "Move left" },
     ["<C-l>"] = { "<Right>", "Move right" },
@@ -99,6 +102,21 @@ M.tabufline = {
         require("nvchad.tabufline").close_buffer()
       end,
       "Close buffer",
+    },
+    
+    -- custom cycle through buffers
+    ["<S-l>"] = {
+      function()
+        require("nvchad.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+
+    ["<S-h>"] = {
+      function()
+        require("nvchad.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
     },
   },
 }
